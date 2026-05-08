@@ -3,7 +3,7 @@
 # content support and don't mind $HOST variable (found below) literally becoming "/"
 # as setting your base URL to "/" let's you to build your website for any domain as
 # opposed to hardcoding it to your's which can cause styling issues wehn you change your domain
-base_url = "/"
+base_url = "https://backups1der.github.io/ametrine-starter-template/"
 title = "Blog name"   # Appears in your browser's tab title and home page
 description = "Description"   # Appears in your site's home page
 
