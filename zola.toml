@@ -1,0 +1,290 @@
+# The URL the site will be built for.
+# If you use CI pipelines, then set this to "/" if you don't want multilingual 
+# content support and don't mind $HOST variable (found below) literally becoming "/"
+# as setting your base URL to "/" let's you to build your website for any domain as
+# opposed to hardcoding it to your's which can cause styling issues wehn you change your domain
+base_url = "/"
+title = "Blog name"   # Appears in your browser's tab title and home page
+description = "Description"   # Appears in your site's home page
+
+theme = "ametrine"
+author = "Awesome guy"  # Change it to your online handle (or your name if you're OK with it lol)
+
+compile_sass = true
+build_search_index = true
+minify_html = true
+feed_filenames = ["atom.xml", "rss.xml"]
+
+taxonomies = [
+  { name = "tags", feed = true, paginate_by = 5 },
+  { name = "categories", feed = true },
+]
+
+[markdown]
+smart_punctuation = true
+bottom_footnotes = true
+external_links_class = "external"
+github_alerts = true
+insert_anchor_links = "left"
+render_emoji = true
+
+[markdown.highlighting]
+# Whether to do syntax highlighting. Theme can be customised by customizing
+# stuff below, though it's not recommended to do if you don't understand this.
+style = "class"
+light_theme = "monokai-pro-light"
+dark_theme = "monokai-pro"
+extra_themes = [
+  "themes/ametrine/giallo/themes/monokai-pro-light.json",
+  "themes/ametrine/giallo/themes/monokai-pro.json",
+]
+
+[search]
+# Accepted values are "elasticlunr_javascript" and "elasticlunr_json", use JSON if you want less Javascript
+index_format = "elasticlunr_json"
+
+[link_checker]
+internal_level = "warn"
+
+[extra]
+# Usage of an icon is heavily adviced. In case if none is provided, a question
+# mark icon will be used instead.
+# Any icon name from https://phosphoricons.com can be used.
+# Color attribute accepts the same values as extra.accent_color, which can be
+# found below.
+categories = [
+  { name = "Archived", description = "Posts that have been archived due to their age.", color = "purple", icon = "box-arrow-down" },
+  { name = "Featured", description = "Posts that are somewhat decently written.", color = "yellow", icon = "star" },
+  { name = "Hot", description = "Posts that did numbers compared to others.", color = "red", icon = "fire" },
+  { name = "Test", description = "Categories can be set and customized entirely from config, woo-hoo!", color = "green", icon = "feather" },
+]
+
+# Accent color used by Ametrine.
+#
+# Has several modes:
+# - Use one of the presets (applies to both light and dark modes):
+#   accent_color = "<red, orange, yellow, green, blue, purple>"
+# - Use a single HSL color for both light and dark modes:
+#   accent_color = "hsl(270, 50%, 60%)"
+# - Use separate colors for light and dark modes (it's possible to mix both
+# presets and HSL colors):
+#   Presets:    accent_color = ["red", "blue"]
+#   Preset + HSL:   accent_color = ["red", "hsl(270, 50%, 60%)"]
+#   HSLs: accent_color = ["hsl(270, 50%, 60%)", "hsl(27.567572, 87%, 67%)"]
+#
+# Custom colors must be in HSL format. You can also define your own color
+# presets by creating an "accent_presets.toml" file under the "./data/"
+# directory with custom preset names and colors. Use the one located in Ametrine
+# as a reference.
+accent_color = ["hsl(270, 50%, 60%)", "hsl(27.567572, 87%, 67%)"]
+
+# Additional CSS styles; expects them to be in the "./static/" directory.
+
+# If you are using SASS compilation, then these will be generated automatically.
+# SASS compilation compiles your .sass/.scss files to /public while serving or building, and it
+# compiles each standalone file with exact same name and copies everything you've referenced into them files
+# e.g "/sass/index.sass" and it's components will compile to a singular file at "/public/index.css".
+
+
+styles = ["index.css"]
+
+# Additional JavaScript scripts; expects them to be in the "./static/"
+# directory.
+#
+# scripts = ["index.js", "useful-thing.js"]
+
+# Path to the page that is being considered "Home", e.g. for the "Go Home" button on 404.
+# home_url = "@/home/index.md"
+# Should be left default unless you want to split your stuff (which is not recommended)
+# You can use @ to refer to the content directory directly.
+# (e.g. "@/blog/page.md" instead of "/content/blog/page.md")
+# home_url = "@/home/index.md"
+
+# URL to website's source code.
+# source_url = "https://github.com/example/blog"
+# ...and to it's bug tracker/issues page.
+# issues_url = "https://github.com/example/blog/issues/new"
+
+# Whether to show estimated read time in posts.
+show_reading_time = true
+
+# Whether to show acopy button on code blocks
+copy_button = true
+
+# Whether to show an audio play button for audio files embedded using the {{ audio }} shortcode.
+# If you disable this, the you wouldn't be able to use audio shortcode unless you explicitly set
+# it on within your page's YAML header
+audio_button = true
+
+# Custom separator used throughout the theme.
+separator = "***"
+# Custom separator used in website's title and article metadata.
+title_separator = "|"
+
+# Locale and timezone shit.
+date_format = "%d %B %Y"
+date_format_long = "%d %B %Y, %R (%Z)"
+date_locale = "tr_TR"
+timezone = "Europe/Istanbul"
+
+# Shows a QR code that directly jumps to your Mastodon instance, focused on comment writer.
+show_comments_qr = true
+
+# Whether to use Content Security Policy.
+# Keep in mind that although this can potentially increase security,
+# it can break some things, in which case you will need to set a custom policy.
+# You can keep it commented like this if you don't want to deal with CSP's or
+# uncomment this and configure it however you want
+# csp = [
+#     { directive = "img-src", domains = [
+#         "'self'",
+#         "https:",
+#         "data:",
+#     ] },
+#     { directive = "media-src", domains = [
+#         "'self'",
+#         "https:",
+#     ] },
+#     { directive = "script-src", domains = [
+#         "cloud.umami.is",
+#     ] },
+#     { directive = "style-src", domains = [
+#         "'self'",
+#         "'unsafe-inline'",
+#     ] },
+#     { directive = "frame-src", domains = [
+#         "https://player.vimeo.com",
+#         "https://www.youtube-nocookie.com",
+#         "https://vmst.io",
+#     ] },
+#     { directive = "connect-src", domains = [
+#         "api.lanyard.rest",
+#         "discord.com",
+#         "*.umami.dev",
+#         "cloud.umami.is",
+#     ] },
+#     { directive = "base-uri", domains = [
+#         "'none'",
+#     ] },
+#     { directive = "form-action", domains = [
+#         "'none'",
+#     ] },
+# ]
+
+[extra.meta]
+# Variables below accept either "true" or a file(nane) from /static.
+# Favicon can also accept an emoji instead of a filename.
+# File extension are being respected, so e.g. if favicon has .gif extension
+# it'll be treated as an animated one.
+# If set to "true" these will use the default filenames:
+# favicon          = favicon.png
+# apple_touch_icon = apple-touch-icon.png
+# card             = card.png
+favicon = "🙂"
+apple_touch_icon = "favicon.png"
+card = true
+
+[extra.nav]
+# When set to true and [extra.fediverse] is defined, it will use avatar from
+# said Mastodon account, otherwise it'll fallback to apple_touch_icon specified
+# in [extra.meta] or its default value.
+# Also accepts arbitrary filenames and URLs for custom images.
+# icon = "apple-touch-icon.webp"
+icon = true
+# Usage of an icon is heavily adviced. In case if none is provided, first two
+# letters of the link name will be used instead.
+# Any icon name from https://phosphoricons.com can be used.
+links = [
+  { url = "@/blog/_index.md", name = "Blog", icon = "newspaper" },
+  { url = "@/demo/_index.md", name = "Demo", icon = "info" },
+  { url = "@/about/_index.md", name = "About me", icon = "user" },
+]
+
+[extra.footer]
+# Set to false to disable copyright text, or set to anything else to use it as
+# the copyright text (Markdown supported).
+# $YEAR will be replaced with current year.
+copyright = "© **Author name**, $YEAR."
+
+# Whether to show "Powered by Zola and Ametrine", and a link to the source code
+show_powered_by = true
+show_source = true
+# Whether to show timestamp of the last build. Uses UTC timezone unless your own
+# is set under extra.timezone. If Git repository is detected, current commit
+# hash will be appended.
+show_timestamp = true
+# Social links in the footer.
+# Any icon name from https://simpleicons.org can be used.
+# socials = [{ url = "https://snugnook.org", icon = "pipecat" },]
+
+# List of webrings. Allowed fields:
+# - name     (required)
+# - url      (required)
+# - previous (required)
+# - next     (required)
+# - random   (optional)
+# "$HOST" can be used to insert config.base_url with "https://" stripped away.
+webrings = [
+  { name = "Example Webring", url = "https://example.com", previous = "https://example.com/prev", next = "https://example.com/next", random = "https://example.com/random" },
+]
+
+note = "<small>Did you know that you could change this text to your liking, and remove it completely?</small>"
+
+# [extra.fediverse]
+# Fediverse integration.
+# Used for:
+# - Commenting
+# - Custom emoji shortcode
+# - Website verification
+# - Author attribution
+#
+# Mastodon-powered commenting is based on
+# https://carlschwan.eu/2020/12/29/adding-comments-to-your-static-blog-with-mastodon/
+#
+# Values can be overridden in the front-matter, e.g.
+# for multi-author blogs or guest posts.
+
+# host = "mastodon.social"
+# user = "username"
+
+# [extra.analytics]
+# Specify which analytics service you want to use.
+# Supported options: "goatcounter", "umami", and "plausible".
+# service = "umami"
+
+# Unique identifier for tracking.
+# For GoatCounter, this is the code you choose during signup.
+# For Umami, this is the website ID.
+# For Plausible, this is the domain name (e.g. "example.com").
+# Note: Leave this field empty if you're self-hosting GoatCounter.
+# id = "61ac1043-f048-4aee-8eac-28a553cad810"
+
+# Optional: Specify the URL for self-hosted analytics instances.
+# For GoatCounter: Base URL like "https://stats.example.com"
+# For Umami: Base URL like "https://umami.example.com"
+# For Plausible: Base URL like "https://plausible.example.com"
+# Leave this field empty if you're using the service's default hosting.
+# self_hosted_url = "https://stats.daudix.one"
+
+# Optional: For Umami, enable this option if you don't want to collect search
+# parameters from the URL.
+# exclude_search = false
+
+# Optional: For Umami, enable this option if you don't want to collect the hash
+# value from the URL.
+# exclude_hash = false
+
+# Optional: For Umami, enable this option to respect users' Do Not Track (DNT)
+# settings.
+# do_not_track = true
+
+[extra.debug]
+# Display outlines around all elements
+# layout = true
+# Don't load any styles for
+# no_styles = true
+
+# Skip loading of Mastodon emojis used via the emoji.html shortcode.
+# Sometimes needed for building the project because this shortcode can also pull emojis
+# from Mastodon instances, and it fails when you don't set up your credentials properly.
+no_emojis = true

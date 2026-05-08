@@ -1,0 +1,18 @@
+{%- if not config.extra.debug.no_stickers -%}
+	{%- if not path -%}
+		{{- throw(message="Sticker path not specified.") -}}
+	{%- endif -%}
+
+	{%- if path -%}
+		{%- set sticker_src = path -%}
+		{%- set sticker_title = name -%}
+	{%- endif -%}
+
+	<img
+		class="emoji{% if big %} big{% endif %}"
+		src="{{ sticker_src | safe }}"
+		title="{{ sticker_title }}"
+		width="24"
+		height="24"
+	/>
+{% endif %}

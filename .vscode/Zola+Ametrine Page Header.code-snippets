@@ -1,0 +1,10 @@
+{
+  "Page Header": {
+    "scope": "markdown",
+    "prefix": "++",
+    "body": [
+      "+++\ntitle = \"Title\"\ndescription = \"Description\"\n\n[taxonomies]\ntags = [\"blog\"]\n\n[extra]\naccent_color = \"hsl(100, 28%, 59%)\"\n# If an image called \"card.png\" is found on root of\n# this blog entry, then it will get used automatically.\nbanner = \"card.png\"\n\ntrigger = \"Something to be warned about (you know, those TW's)\"\narchive = \"I'm pretty sure that you won't use this, like, at all.\"\ndisclaimer = \"\"\"\n- Yes, you can do multi-line inputs in YAML (and YAML headers)\n- No, I don't give a fuck about your usege of this info.\n- Subscribing to MrBeast won't give you cookies, I learnt that the hard way :((\n- Don't leave neofaxes without headpats, they will consume you if you ignore this step.\n- Subscribe to [Daudix](https://daudix.one) on RSS-\n\"\"\"\n\n# styles = [\"demo/demo.css\"]\n# scripts = [\"demo/demo.js\"]\n\n[extra.weather]\ncondition = \"You can do comically long shit here (looking at you, \\\"FitnessGram pacing text\\\" ad script)\"\n# Available styles: <cloudy, showers, snowing>\nstyle = \"cloudy\"\n# Any icon from https://phosphoricons.com\nicon = \"aperture\"\ntemp = \"10\"\n\ntoc = true\naudio_button = true\n# backlinks = true\n+++"
+    ],
+    "description": "Creates a YAML header template to be used with Zola + Ametrine setup."
+  }
+}

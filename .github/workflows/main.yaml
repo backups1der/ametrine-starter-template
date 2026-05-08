@@ -1,0 +1,26 @@
+name: Build Zola project and deploy to "public" branch
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout main branch
+        uses: actions/checkout@v4
+
+      - name: Build with Zola, then push to "public" branch
+        uses: shalzz/zola-deploy-action@v0.22.1
+        env:
+          PAGES_BRANCH: public
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Ananas the duck
+        run: echo "Ananas duck"

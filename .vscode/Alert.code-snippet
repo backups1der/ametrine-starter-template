@@ -1,0 +1,10 @@
+{
+  "Alert" : {
+    "scope": "markdown",
+    "prefix": "alert",
+    "body": ["> [!${1|NOTE,TIP,IMPORTANT,WARNING,CAUTION|}]",
+    "> ${2:Content goes here}",
+    "$0"],
+    "description": "Insert an alert block"
+	}
+}

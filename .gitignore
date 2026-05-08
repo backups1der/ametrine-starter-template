@@ -1,0 +1,6 @@
+# Ignore "public" directory as it might contain messed up stuff from constant `zola serve`ing.
+# It will get recreated once the Dockerfile has been builded anyways.
+public/
+
+# You'll never know. Maybe I'm not seeing properly and have added this to ".gitingore" instead of ".gitignore"
+.env
